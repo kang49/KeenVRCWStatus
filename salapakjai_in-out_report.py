@@ -1,5 +1,10 @@
+from curses import beep
 import requests
 from datetime import datetime
+import vlc
+import time
+
+bellsound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/sound.mp3")
 
 
 # VRC kAvtr Cookie
@@ -40,7 +45,11 @@ while True:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             salaPplayer_counter = salaPAllNow - salaPplayersNow
+            # if salaPplayer_counter > 0:
+            #     bellsound.play()
             print(current_time, "Sala Pak Jai" ,'Now players is', salaPAllNow , 'People' , '|' , salaPplayer_counter , '|')
+            # time.sleep(1)
+            # bellsound.stop()
             salaPplayersNow = salaPAllNow
         if salaPData['favorites'] != salaPfavNow:
             now = datetime.now()
