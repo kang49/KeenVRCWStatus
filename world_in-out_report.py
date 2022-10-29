@@ -25,7 +25,7 @@ headers_salaP = {
     'Host': 'vrchat.com',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
     'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
-    'Referer': 'https://vrchat.com/home/world/wrld_92bf5258-6dd3-4c7d-87da-7ae3c9ecf574',
+    'Referer': 'https://vrchat.com/home/world/wrld_1b68f7a8-8aea-4900-b7a2-3fc4139ac817',
     'Connection': 'keep-alive',
 }
 
@@ -35,7 +35,7 @@ salaPfavNow = 0
 
 while True:
     try:
-        salaPData = requests.get('https://vrchat.com/api/1/worlds/wrld_92bf5258-6dd3-4c7d-87da-7ae3c9ecf574', cookies=cookies_salaP, headers=headers_salaP)
+        salaPData = requests.get('https://vrchat.com/api/1/worlds/wrld_1b68f7a8-8aea-4900-b7a2-3fc4139ac817', cookies=cookies_salaP, headers=headers_salaP)
         salaPData = salaPData.json()
         
         salaPpubNow = salaPData['publicOccupants']
@@ -54,7 +54,7 @@ while True:
                 if playsound == "y":
                     ap_Off_sound.play()
 
-            print(current_time, "Sala Pak Jai" ,'Now players is', salaPAllNow , 'People' , '|' , salaPplayer_counter , '|')
+            print(current_time, "World" ,'Now players is', salaPAllNow , 'People' , '|' , salaPplayer_counter , '|')
             time.sleep(2)
             ap_On_sound.stop()
             ap_Off_sound.stop()
@@ -64,11 +64,10 @@ while True:
             current_time = now.strftime("%H:%M:%S")
             salaPfav_counter = salaPData['favorites'] - salaPfavNow
 
-            if salaPplayer_counter > 0:
-                if playsound == "y":
-                    bell_sound.play()
+            if salaPfav_counter > 0:
+                bell_sound.play()
 
-            print(current_time, "Sala Pak Jai" ,'Have', salaPData['favorites'] , 'Favorites' , '|' , salaPfav_counter , '|')
+            print(current_time, "World" ,'Have', salaPData['favorites'] , 'Favorites' , '|' , salaPfav_counter , '|')
             time.sleep(2)
             bell_sound.stop()
             salaPfavNow = salaPData['favorites']

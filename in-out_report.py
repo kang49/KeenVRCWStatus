@@ -10,9 +10,9 @@ bell_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/bell.mp3")
 # VRC kAvtr Cookie
 cookies_kAvtrVRC = {
     'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
-    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfNDhlOTgzNGQtZWEwMC00ZWU2LTljYzAtM2E4ZDQyZGIwNTgzIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3MDczOTI2NDcyLCJsYXN0RXZlbnRUaW1lIjoxNjY3MDczOTQxNTQyLCJldmVudElkIjo2MywiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjYzfQ==',
-    'auth': 'authcookie_1cc249cc-d4d0-438a-bd30-93032c0a2fab',
-    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY2NTg3MDk4MTQ4NywidmVyc2lvbiI6MSwiaWF0IjoxNjY3MDU1MDY5LCJleHAiOjE2Njk2NDcwNjksImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.dyfvCJb644d8UIJxiuUvnABuikWhH3QjFqBjK_ivv08',
+    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3MDc5MDAwMTY1LCJsYXN0RXZlbnRUaW1lIjoxNjY3MDgwNzA4NzAzLCJldmVudElkIjo3MSwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjcxfQ==',
+    'auth': 'authcookie_644d50fb-7643-4945-9d55-d79d443f2133',
+    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY2NTg3MDk4MTQ4NywidmVyc2lvbiI6MSwiaWF0IjoxNjY3MDc5MDAwLCJleHAiOjE2Njk2NzEwMDAsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.vb9hd-HfUIOYPfBN2exnD4Qbw5Fd9NvwRHWLIkUexzM',
 }
 
 headers_kAvtrVRC = {
@@ -30,9 +30,9 @@ headers_kAvtrVRC = {
 # VRC Nature House Cookie
 cookies_natureHouse = {
     'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
-    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfNDhlOTgzNGQtZWEwMC00ZWU2LTljYzAtM2E4ZDQyZGIwNTgzIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3MDczOTI2NDcyLCJsYXN0RXZlbnRUaW1lIjoxNjY3MDczOTQxNTQyLCJldmVudElkIjo2MywiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjYzfQ==',
-    'auth': 'authcookie_1cc249cc-d4d0-438a-bd30-93032c0a2fab',
-    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY2NTg3MDk4MTQ4NywidmVyc2lvbiI6MSwiaWF0IjoxNjY3MDU1MDY5LCJleHAiOjE2Njk2NDcwNjksImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.dyfvCJb644d8UIJxiuUvnABuikWhH3QjFqBjK_ivv08',
+    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3MDc5MDAwMTY1LCJsYXN0RXZlbnRUaW1lIjoxNjY3MDgwNzA4NzAzLCJldmVudElkIjo3MSwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjcxfQ==',
+    'auth': 'authcookie_644d50fb-7643-4945-9d55-d79d443f2133',
+    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY2NTg3MDk4MTQ4NywidmVyc2lvbiI6MSwiaWF0IjoxNjY3MDc5MDAwLCJleHAiOjE2Njk2NzEwMDAsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.vb9hd-HfUIOYPfBN2exnD4Qbw5Fd9NvwRHWLIkUexzM',
 }
 
 headers_natureHouse = {
@@ -47,6 +47,7 @@ headers_natureHouse = {
     'Connection': 'keep-alive',
 }
 
+playsound = input("Do you want to play sound? (y/n): ")
 playersNow_kAvtr = 0
 favNow_kAvtr = 0
 playersNow_natureHouse = 0
@@ -65,9 +66,11 @@ while True:
             kAvtrPlayer_Counter = kAvtrData['occupants'] - playersNow_kAvtr
             
             if kAvtrPlayer_Counter > 0:
-                ap_On_sound.play()
+                if playsound == "y":
+                    ap_On_sound.play()
             if kAvtrPlayer_Counter < 0:
-                ap_Off_sound.play()
+                if playsound == "y":
+                    ap_Off_sound.play()
 
             print(current_time, "Keen's Avatars World" ,'Now players is', kAvtrData['occupants'] , 'People' , '|' , kAvtrPlayer_Counter , '|')
             time.sleep(2)
@@ -80,7 +83,8 @@ while True:
             kAvtrFav_Counter = kAvtrData['favorites'] - favNow_kAvtr
 
             if kAvtrFav_Counter > 0:
-                bell_sound.play()
+                if playsound == "y":
+                    bell_sound.play()
 
             print(current_time, "Keen's Avatars World" , 'Have' , kAvtrData['favorites'] , 'Favorites' , '|' , kAvtrFav_Counter , '|')
             time.sleep(2)
@@ -93,9 +97,11 @@ while True:
             natureHousePlayer_Counter = natureHouseData['occupants'] - playersNow_natureHouse
             
             if natureHousePlayer_Counter > 0:
-                ap_On_sound.play()
+                if playsound == "y":
+                    ap_On_sound.play()
             if natureHousePlayer_Counter < 0:
-                ap_Off_sound.play()
+                if playsound == "y":
+                    ap_Off_sound.play()
 
             print(current_time, "Nature House" , 'Now players is' , natureHouseData['occupants'] , 'People' , '|' , natureHousePlayer_Counter , '|')
             time.sleep(2)
@@ -108,7 +114,8 @@ while True:
             natureHouseFav_Counter = natureHouseData['favorites'] - favNow_natureHouse
 
             if natureHouseFav_Counter > 0:
-                bell_sound.play()
+                if playsound == "y":
+                    bell_sound.play()
                 
             print(current_time, "Nature House" , 'Have' , natureHouseData['favorites'] , 'Favorites' , '|' , natureHouseFav_Counter , '|')
             time.sleep(2)
