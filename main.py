@@ -78,17 +78,28 @@ count = requests.get(countUrl)
 count_soup = BeautifulSoup(count.text, 'html.parser')
 count_find = count_soup.find_all('text')
 
+# Update Stats
+
+if natureHouseData['tags'][6] == 'system_updated_recently':
+    updateStatus_natureHouse = 'Updated'
+else:
+    updateStatus_natureHouse = 'Updates are allowed!!!'
+
+if kAvtrVRCdata['tags'][6] == 'system_updated_recently':
+    updateStatus_kAvtr = 'Updated'
+else:
+    updateStatus_kAvtr = 'Updates are allowed!!!'
 
 # FrontEnd
 print ('been running for:' ,count_find[2].text , 'Time')
 print('____________________________________________________________')
-print("Keen's Avatar World")
+print("Keen's Avatar World" , 'Update Status:' , updateStatus_kAvtr)
 print("Public:" , kAvtrVRCdata['publicOccupants'])
 print("Private:" , kAvtrVRCdata['privateOccupants'])
 print("Today+:" , kAvtrVRCW_find[2].text ,'|', kAvtrVRCW_find[3].text)
 print("Favorites+:" , kAvtrVRCW_find[5].text ,'|', kAvtrVRCW_find[6].text)
 print('____________________________________________________________')
-print("Nature House")
+print("Nature House" , 'Update Status:' , updateStatus_natureHouse)
 print("Public:" , natureHouseData['publicOccupants'])
 print("Private:" , natureHouseData['privateOccupants'])
 print("Today+:" , natureHouseVRCW_find[2].text ,'|', natureHouseVRCW_find[3].text)
