@@ -80,7 +80,7 @@ count_find = count_soup.find_all('text')
 
 
 # FrontEnd
-print ('been running for:' ,count_find[2].text)
+print ('been running for:' ,count_find[2].text , 'Time')
 print('____________________________________________________________')
 print("Keen's Avatar World")
 print("Public:" , kAvtrVRCdata['publicOccupants'])
