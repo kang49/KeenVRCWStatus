@@ -1,10 +1,8 @@
 import requests
-from bs4 import BeautifulSoup
+from datetime import datetime
 
 
-# Keen's Avatar World
-
-# VRC
+# VRC kAvtr Cookie
 cookies_kAvtrVRC = {
     'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
     'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3MDU1MDY5MDU0LCJsYXN0RXZlbnRUaW1lIjoxNjY3MDU1MDg1NjIwLCJldmVudElkIjo1MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjUwfQ==',
@@ -24,21 +22,7 @@ headers_kAvtrVRC = {
     'Connection': 'keep-alive',
 }
 
-kAvtrVRCdata = requests.get('https://vrchat.com/api/1/worlds/wrld_e26b7a14-e8cf-4a0f-890f-e5676bd40032', cookies=cookies_kAvtrVRC, headers=headers_kAvtrVRC)
-kAvtrVRCdata = kAvtrVRCdata.json()
-
-# VRCW.net
-kAvtrVRCWurl = 'https://en.vrcw.net/world/detail/wrld_e26b7a14-e8cf-4a0f-890f-e5676bd40032'
-kAvtrVRCWdata = requests.get(kAvtrVRCWurl)
-
-kAvtrVRCW_soup = BeautifulSoup(kAvtrVRCWdata.text, 'html.parser')
-kAvtrVRCW_find = kAvtrVRCW_soup.find_all('td')
-
-# ________________________________________________________________________________________________________________________________________________________________
-
-# Nature House
-
-# VRC
+# VRC Nature House Cookie
 cookies_natureHouse = {
     'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
     'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3MDU1MDY5MDU0LCJsYXN0RXZlbnRUaW1lIjoxNjY3MDU1MDg1NjIwLCJldmVudElkIjo1MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjUwfQ==',
@@ -58,40 +42,35 @@ headers_natureHouse = {
     'Connection': 'keep-alive',
 }
 
-natureHouseData = requests.get('https://vrchat.com/api/1/worlds/wrld_6e447f3a-c9c0-49b4-a5bf-b098b84fb585', cookies=cookies_natureHouse, headers=headers_natureHouse)
-natureHouseData = natureHouseData.json()
+playersNow_kAvtr = 0
+favNow_kAvtr = 0
+playersNow_natureHouse = 0
+favNow_natureHouse = 0
+while True:
+    kAvtrData = requests.get('https://vrchat.com/api/1/worlds/wrld_e26b7a14-e8cf-4a0f-890f-e5676bd40032', cookies=cookies_kAvtrVRC, headers=headers_kAvtrVRC)
+    kAvtrData = kAvtrData.json()
 
-# VRCW.net
-natureHouseVRCWurl = 'https://en.vrcw.net/world/detail/wrld_6e447f3a-c9c0-49b4-a5bf-b098b84fb585'
-natureHouseVRCW = requests.get(natureHouseVRCWurl)
+    natureHouseData = requests.get('https://vrchat.com/api/1/worlds/wrld_6e447f3a-c9c0-49b4-a5bf-b098b84fb585', cookies=cookies_natureHouse, headers=headers_natureHouse)
+    natureHouseData = natureHouseData.json()
 
-natureHouseVRCW_soup = BeautifulSoup(natureHouseVRCW.text, 'html.parser')
-natureHouseVRCW_find = natureHouseVRCW_soup.find_all('td')
-
-
-
-
-# Get views counts
-countUrl = 'https://camo.githubusercontent.com/7dd2113cef6e3e8d4297634c92be5984e1e954b08f1059503c03e2a9e2af5c96/68747470733a2f2f76697369746f722d62616467652e676c697463682e6d652f62616467653f706167655f69643d6b616e6734392e4b65656e56524357537461747573'
-count = requests.get(countUrl)
-
-count_soup = BeautifulSoup(count.text, 'html.parser')
-count_find = count_soup.find_all('text')
-
-
-# FrontEnd
-print ('been running for:' ,count_find[2].text , 'Time')
-print('____________________________________________________________')
-print("Keen's Avatar World")
-print("Public:" , kAvtrVRCdata['publicOccupants'])
-print("Private:" , kAvtrVRCdata['privateOccupants'])
-print("Today+:" , kAvtrVRCW_find[2].text ,'|', kAvtrVRCW_find[3].text)
-print("Favorites+:" , kAvtrVRCW_find[5].text ,'|', kAvtrVRCW_find[6].text)
-print('____________________________________________________________')
-print("Nature House")
-print("Public:" , natureHouseData['publicOccupants'])
-print("Private:" , natureHouseData['privateOccupants'])
-print("Today+:" , natureHouseVRCW_find[2].text ,'|', natureHouseVRCW_find[3].text)
-print("Favorites+:" , natureHouseVRCW_find[5].text ,'|', natureHouseVRCW_find[6].text)
-print('____________________________________________________________')
-print("Developed by KanG49")
+    if kAvtrData['occupants'] != playersNow_kAvtr:
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        print(current_time, "Keen's Avatars World" ,'Now players is', kAvtrData['occupants'] , 'People')
+        playersNow_kAvtr = kAvtrData['occupants']
+    if kAvtrData['favorites'] != favNow_kAvtr:
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        print(current_time, "Keen's Avatars World" , 'Have' , kAvtrData['favorites'] , 'Favorites')
+        favNow_kAvtr = kAvtrData['favorites']
+    
+    if natureHouseData['occupants'] != playersNow_natureHouse:
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        print(current_time, "Nature House" , 'Now players is' , natureHouseData['occupants'] , 'People')
+        playersNow_natureHouse = natureHouseData['occupants']
+    if natureHouseData['favorites'] != favNow_natureHouse:
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        print(current_time, "Nature House" , 'Have' , natureHouseData['favorites'] , 'Favorites')
+        favNow_natureHouse = natureHouseData['favorites']
