@@ -24,15 +24,10 @@ headers_kAvtrVRC = {
     'Connection': 'keep-alive',
 }
 
-kAvtrVRCdata = requests.get('https://vrchat.com/api/1/worlds/wrld_e26b7a14-e8cf-4a0f-890f-e5676bd40032', cookies=cookies_kAvtrVRC, headers=headers_kAvtrVRC)
-kAvtrVRCdata = kAvtrVRCdata.json()
 
 # VRCW.net
 kAvtrVRCWurl = 'https://en.vrcw.net/world/detail/wrld_e26b7a14-e8cf-4a0f-890f-e5676bd40032'
-kAvtrVRCWdata = requests.get(kAvtrVRCWurl)
 
-kAvtrVRCW_soup = BeautifulSoup(kAvtrVRCWdata.text, 'html.parser')
-kAvtrVRCW_find = kAvtrVRCW_soup.find_all('td')
 
 # ________________________________________________________________________________________________________________________________________________________________
 
@@ -58,40 +53,57 @@ headers_natureHouse = {
     'Connection': 'keep-alive',
 }
 
-natureHouseData = requests.get('https://vrchat.com/api/1/worlds/wrld_6e447f3a-c9c0-49b4-a5bf-b098b84fb585', cookies=cookies_natureHouse, headers=headers_natureHouse)
-natureHouseData = natureHouseData.json()
+
 
 # VRCW.net
 natureHouseVRCWurl = 'https://en.vrcw.net/world/detail/wrld_6e447f3a-c9c0-49b4-a5bf-b098b84fb585'
-natureHouseVRCW = requests.get(natureHouseVRCWurl)
-
-natureHouseVRCW_soup = BeautifulSoup(natureHouseVRCW.text, 'html.parser')
-natureHouseVRCW_find = natureHouseVRCW_soup.find_all('td')
 
 
 
 
 # Get views counts
 countUrl = 'https://camo.githubusercontent.com/7dd2113cef6e3e8d4297634c92be5984e1e954b08f1059503c03e2a9e2af5c96/68747470733a2f2f76697369746f722d62616467652e676c697463682e6d652f62616467653f706167655f69643d6b616e6734392e4b65656e56524357537461747573'
-count = requests.get(countUrl)
 
-count_soup = BeautifulSoup(count.text, 'html.parser')
-count_find = count_soup.find_all('text')
+
+# Get ALL the data
+
+while True:
+    count = requests.get(countUrl)
+
+    count_soup = BeautifulSoup(count.text, 'html.parser')
+    count_find = count_soup.find_all('text')
+    
+    kAvtrVRCdata = requests.get('https://vrchat.com/api/1/worlds/wrld_e26b7a14-e8cf-4a0f-890f-e5676bd40032', cookies=cookies_kAvtrVRC, headers=headers_kAvtrVRC)
+    kAvtrVRCdata = kAvtrVRCdata.json()
+
+    kAvtrVRCWdata = requests.get(kAvtrVRCWurl)
+
+    kAvtrVRCW_soup = BeautifulSoup(kAvtrVRCWdata.text, 'html.parser')
+    kAvtrVRCW_find = kAvtrVRCW_soup.find_all('td')
+
+
+    natureHouseData = requests.get('https://vrchat.com/api/1/worlds/wrld_6e447f3a-c9c0-49b4-a5bf-b098b84fb585', cookies=cookies_natureHouse, headers=headers_natureHouse)
+    natureHouseData = natureHouseData.json()
+
+    natureHouseVRCW = requests.get(natureHouseVRCWurl)
+
+    natureHouseVRCW_soup = BeautifulSoup(natureHouseVRCW.text, 'html.parser')
+    natureHouseVRCW_find = natureHouseVRCW_soup.find_all('td')
 
 
 # FrontEnd
-print ('been running for:' ,count_find[2].text , 'Time')
-print('____________________________________________________________')
-print("Keen's Avatar World")
-print("Public:" , kAvtrVRCdata['publicOccupants'])
-print("Private:" , kAvtrVRCdata['privateOccupants'])
-print("Today+:" , kAvtrVRCW_find[2].text ,'|', kAvtrVRCW_find[3].text)
-print("Favorites+:" , kAvtrVRCW_find[5].text ,'|', kAvtrVRCW_find[6].text)
-print('____________________________________________________________')
-print("Nature House")
-print("Public:" , natureHouseData['publicOccupants'])
-print("Private:" , natureHouseData['privateOccupants'])
-print("Today+:" , natureHouseVRCW_find[2].text ,'|', natureHouseVRCW_find[3].text)
-print("Favorites+:" , natureHouseVRCW_find[5].text ,'|', natureHouseVRCW_find[6].text)
-print('____________________________________________________________')
-print("Developed by KanG49")
+    print ('been running for:' ,count_find[2].text , 'Time')
+    print('____________________________________________________________')
+    print("Keen's Avatar World")
+    print("Public:" , kAvtrVRCdata['publicOccupants'])
+    print("Private:" , kAvtrVRCdata['privateOccupants'])
+    print("Today+:" , kAvtrVRCW_find[2].text ,'|', kAvtrVRCW_find[3].text)
+    print("Favorites+:" , kAvtrVRCW_find[5].text ,'|', kAvtrVRCW_find[6].text)
+    print('____________________________________________________________')
+    print("Nature House")
+    print("Public:" , natureHouseData['publicOccupants'])
+    print("Private:" , natureHouseData['privateOccupants'])
+    print("Today+:" , natureHouseVRCW_find[2].text ,'|', natureHouseVRCW_find[3].text)
+    print("Favorites+:" , natureHouseVRCW_find[5].text ,'|', natureHouseVRCW_find[6].text)
+    print('____________________________________________________________')
+    print("Developed by KanG49")
