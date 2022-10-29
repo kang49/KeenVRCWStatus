@@ -4,7 +4,9 @@ from datetime import datetime
 import vlc
 import time
 
-bellsound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/sound.mp3")
+ap_On_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/AP-On.mp3")
+ap_Off_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/AP-Off.mp3")
+bell_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/bell.mp3")
 
 
 # VRC kAvtr Cookie
@@ -45,17 +47,28 @@ while True:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             salaPplayer_counter = salaPAllNow - salaPplayersNow
-            # if salaPplayer_counter > 0:
-            #     bellsound.play()
+
+            if salaPplayer_counter > 0:
+                ap_On_sound.play()
+            if salaPplayer_counter < 0:
+                ap_Off_sound.play()
+
             print(current_time, "Sala Pak Jai" ,'Now players is', salaPAllNow , 'People' , '|' , salaPplayer_counter , '|')
-            # time.sleep(1)
-            # bellsound.stop()
+            time.sleep(2)
+            ap_On_sound.stop()
+            ap_Off_sound.stop()
             salaPplayersNow = salaPAllNow
         if salaPData['favorites'] != salaPfavNow:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             salaPfav_counter = salaPData['favorites'] - salaPfavNow
+
+            if salaPfav_counter > 0:
+                bell_sound.play()
+
             print(current_time, "Sala Pak Jai" ,'Have', salaPData['favorites'] , 'Favorites' , '|' , salaPfav_counter , '|')
+            time.sleep(2)
+            bell_sound.stop()
             salaPfavNow = salaPData['favorites']
     
     except:

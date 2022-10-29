@@ -3,7 +3,9 @@ from datetime import datetime
 import vlc
 import time
 
-bellsound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/sound.mp3")
+ap_On_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/AP-On.mp3")
+ap_Off_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/AP-Off.mp3")
+bell_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/bell.mp3")
 
 # VRC kAvtr Cookie
 cookies_kAvtrVRC = {
@@ -61,42 +63,56 @@ while True:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             kAvtrPlayer_Counter = kAvtrData['occupants'] - playersNow_kAvtr
+            
             if kAvtrPlayer_Counter > 0:
-                bellsound.play()
+                ap_On_sound.play()
+            if kAvtrPlayer_Counter < 0:
+                ap_Off_sound.play()
+
             print(current_time, "Keen's Avatars World" ,'Now players is', kAvtrData['occupants'] , 'People' , '|' , kAvtrPlayer_Counter , '|')
             time.sleep(2)
-            bellsound.stop()
+            ap_On_sound.stop()
+            ap_Off_sound.stop()
             playersNow_kAvtr = kAvtrData['occupants']
         if kAvtrData['favorites'] != favNow_kAvtr:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             kAvtrFav_Counter = kAvtrData['favorites'] - favNow_kAvtr
+
             if kAvtrFav_Counter > 0:
-                bellsound.play()
+                bell_sound.play()
+
             print(current_time, "Keen's Avatars World" , 'Have' , kAvtrData['favorites'] , 'Favorites' , '|' , kAvtrFav_Counter , '|')
             time.sleep(2)
-            bellsound.stop()
+            bell_sound.stop()
             favNow_kAvtr = kAvtrData['favorites']
         
         if natureHouseData['occupants'] != playersNow_natureHouse:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             natureHousePlayer_Counter = natureHouseData['occupants'] - playersNow_natureHouse
+            
             if natureHousePlayer_Counter > 0:
-                bellsound.play()
+                ap_On_sound.play()
+            if natureHousePlayer_Counter < 0:
+                ap_Off_sound.play()
+
             print(current_time, "Nature House" , 'Now players is' , natureHouseData['occupants'] , 'People' , '|' , natureHousePlayer_Counter , '|')
             time.sleep(2)
-            bellsound.stop()
+            ap_On_sound.stop()
+            ap_Off_sound.stop()
             playersNow_natureHouse = natureHouseData['occupants']
         if natureHouseData['favorites'] != favNow_natureHouse:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             natureHouseFav_Counter = natureHouseData['favorites'] - favNow_natureHouse
+
             if natureHouseFav_Counter > 0:
-                bellsound.play()
+                bell_sound.play()
+                
             print(current_time, "Nature House" , 'Have' , natureHouseData['favorites'] , 'Favorites' , '|' , natureHouseFav_Counter , '|')
             time.sleep(2)
-            bellsound.stop()
+            bell_sound.stop()
             favNow_natureHouse = natureHouseData['favorites']
     except:
         print('API Error')
