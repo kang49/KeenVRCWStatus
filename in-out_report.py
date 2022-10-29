@@ -57,23 +57,27 @@ while True:
         if kAvtrData['occupants'] != playersNow_kAvtr:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
-            print(current_time, "Keen's Avatars World" ,'Now players is', kAvtrData['occupants'] , 'People')
+            kAvtrPlayer_Counter = kAvtrData['occupants'] - playersNow_kAvtr
+            print(current_time, "Keen's Avatars World" ,'Now players is', kAvtrData['occupants'] , 'People' , '|' , kAvtrPlayer_Counter , '|')
             playersNow_kAvtr = kAvtrData['occupants']
         if kAvtrData['favorites'] != favNow_kAvtr:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
-            print(current_time, "Keen's Avatars World" , 'Have' , kAvtrData['favorites'] , 'Favorites')
+            kAvtrFav_Counter = kAvtrData['favorites'] - favNow_kAvtr
+            print(current_time, "Keen's Avatars World" , 'Have' , kAvtrData['favorites'] , 'Favorites' , '|' , kAvtrFav_Counter , '|')
             favNow_kAvtr = kAvtrData['favorites']
         
         if natureHouseData['occupants'] != playersNow_natureHouse:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
-            print(current_time, "Nature House" , 'Now players is' , natureHouseData['occupants'] , 'People')
+            natureHousePlayer_Counter = natureHouseData['occupants'] - playersNow_natureHouse
+            print(current_time, "Nature House" , 'Now players is' , natureHouseData['occupants'] , 'People' , '|' , natureHousePlayer_Counter , '|')
             playersNow_natureHouse = natureHouseData['occupants']
         if natureHouseData['favorites'] != favNow_natureHouse:
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
-            print(current_time, "Nature House" , 'Have' , natureHouseData['favorites'] , 'Favorites')
+            natureHouseFav_Counter = natureHouseData['favorites'] - favNow_natureHouse
+            print(current_time, "Nature House" , 'Have' , natureHouseData['favorites'] , 'Favorites' , '|' , natureHouseFav_Counter , '|')
             favNow_natureHouse = natureHouseData['favorites']
     except:
-        print('API Key Expired')
+        print('API Error')
