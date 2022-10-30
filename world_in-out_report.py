@@ -4,6 +4,9 @@ from datetime import datetime
 import vlc
 import time
 
+worldID = input('Enter World ID: ')
+worldName = input('Enter World Name: ')
+
 ap_On_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/AP-On.mp3")
 ap_Off_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/AP-Off.mp3")
 bell_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/bell.mp3")
@@ -25,17 +28,16 @@ headers_salaP = {
     'Host': 'vrchat.com',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
     'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
-    'Referer': 'https://vrchat.com/home/world/wrld_1b68f7a8-8aea-4900-b7a2-3fc4139ac817',
+    'Referer': 'https://vrchat.com/home/world/'+worldID,
     'Connection': 'keep-alive',
 }
 
 playsound = input("Do you want to play sound? (y/n): ")
 salaPplayersNow = 0
 salaPfavNow = 0
-
 while True:
     try:
-        salaPData = requests.get('https://vrchat.com/api/1/worlds/wrld_1b68f7a8-8aea-4900-b7a2-3fc4139ac817', cookies=cookies_salaP, headers=headers_salaP)
+        salaPData = requests.get('https://vrchat.com/api/1/worlds/'+worldID, cookies=cookies_salaP, headers=headers_salaP)
         salaPData = salaPData.json()
         
         salaPpubNow = salaPData['publicOccupants']
@@ -54,7 +56,7 @@ while True:
                 if playsound == "y":
                     ap_Off_sound.play()
 
-            print(current_time, "World" ,'Now players is', salaPAllNow , 'People' , '|' , salaPplayer_counter , '|')
+            print(current_time, worldName ,'Now players is', salaPAllNow , 'People' , '|' , salaPplayer_counter , '|')
             time.sleep(2)
             ap_On_sound.stop()
             ap_Off_sound.stop()
@@ -65,9 +67,10 @@ while True:
             salaPfav_counter = salaPData['favorites'] - salaPfavNow
 
             if salaPfav_counter > 0:
-                bell_sound.play()
+                if playsound == "y":
+                    bell_sound.play()
 
-            print(current_time, "World" ,'Have', salaPData['favorites'] , 'Favorites' , '|' , salaPfav_counter , '|')
+            print(current_time, worldName ,'Have', salaPData['favorites'] , 'Favorites' , '|' , salaPfav_counter , '|')
             time.sleep(2)
             bell_sound.stop()
             salaPfavNow = salaPData['favorites']
