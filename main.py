@@ -80,14 +80,16 @@ count_find = count_soup.find_all('text')
 
 # Update Stats
 
-if natureHouseData['tags'][6] == 'system_updated_recently':
-    updateStatus_natureHouse = 'Updated'
-else:
+try:
+    if natureHouseData['tags'][6] == 'system_updated_recently':
+        updateStatus_natureHouse = 'Updated'
+except:
     updateStatus_natureHouse = 'Updates are allowed!!!'
 
-if kAvtrVRCdata['tags'][6] == 'system_updated_recently':
-    updateStatus_kAvtr = 'Updated'
-else:
+try:
+    if kAvtrVRCdata['tags'][6] == 'system_updated_recently':
+        updateStatus_kAvtr = 'Updated'
+except:
     updateStatus_kAvtr = 'Updates are allowed!!!'
 
 # FrontEnd
