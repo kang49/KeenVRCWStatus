@@ -1,7 +1,5 @@
-import getpass
 from lib2to3.pgen2 import driver
 import requests
-import urllib.parse
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -42,33 +40,37 @@ fluctuation_sum = 0 # keep track of the total fluctuation over time
 #  Algorithm
 
 username = 'kang49'
-password = ('G49@meta')
+password = (input('Enter password: '))
 
+# Initialize webdriver and open VRChat login page
 driver = webdriver.Chrome(options=optionsOpenB)
 driver.get('https://vrchat.com/home/login')
 
+# Fill in login form and submit
 login_fill = driver.find_element(By.XPATH, '//*[@id="username_email"]')
 login_fill.send_keys(username)
 
-passfill = driver.find_element(By.XPATH, '//*[@id="password"]')
-passfill.send_keys(password)
+pass_fill = driver.find_element(By.XPATH, '//*[@id="password"]')
+pass_fill.send_keys(password)
 
-login = driver.find_element(By.XPATH, '//*[@id="login-form"]/div[4]/button')
-login.click() # click login
+login_button = driver.find_element(By.XPATH, '//*[@id="login-form"]/div[4]/button')
+login_button.click()
 time.sleep(5)
 
+# Check for and handle two-factor authentication
 try:
-    twoFA_fill = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div/form/div[3]/input')
-    twoFA_fill.send_keys(input('Enter 2FA: '))
+    twofa_fill = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div/form/div[3]/input')
+    twofa_fill.send_keys(input('Enter 2FA: '))
 
-    twoFA_login = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div/form/div[4]/button')
-    twoFA_login.click() # click login
+    twofa_login = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div/form/div[4]/button')
+    twofa_login.click()
     time.sleep(5)
 except:
     pass
 
-go_profile = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[1]/div/div[2]/div[3]/a')
-go_profile.click() # click to profile
+# Navigate to profile page
+profile_link = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[1]/div/div[2]/div[3]/a')
+profile_link.click()
 time.sleep(2)
 
 
@@ -78,8 +80,8 @@ while True:
     fluctuation = random.randint(-3, 3)
     # Add the fluctuation to the current heart rate
     heart_rate = current_rate + fluctuation
-    # Make sure the heart rate stays within the range of 60-100
-    heart_rate = max(60, heart_rate)
+    # Make sure the heart rate stays within the range of 72-100
+    heart_rate = max(72, heart_rate)
     heart_rate = min(100, heart_rate)
     # Add the fluctuation to the sum
     fluctuation_sum += fluctuation
@@ -89,14 +91,14 @@ while True:
     # If the heart rate is over 80, gradually decrease it
     if heart_rate > 80:
         heart_rate -= 1
-    print(heart_rate)
+    print(f'HeartRate {heart_rate} BPM')
     current_rate = heart_rate
 
     click_status_box = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div/div/div/div[2]/div[3]')
     click_status_box.click() # click to status box
 
     status_fill = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div/div/div/div[2]/div[3]/input')
-    status_fill.send_keys(Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, )
-    status_fill.send_keys('HeartRate: ', heart_rate, ' BPM now')
+    status_fill.send_keys(Keys.BACK_SPACE * 20)
+    status_fill.send_keys(f'HeartRate {heart_rate} BPM')
     status_fill.send_keys(Keys.ENTER)
     time.sleep(10)

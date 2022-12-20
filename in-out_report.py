@@ -3,16 +3,16 @@ from datetime import datetime
 import vlc
 import time
 
-ap_On_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/AP-On.mp3")
-ap_Off_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/AP-Off.mp3")
-bell_sound = vlc.MediaPlayer("/Users/kancode/Desktop/KeenVRCWStatus/bell.mp3")
+ap_On_sound = vlc.MediaPlayer("./AP-On.mp3")
+ap_Off_sound = vlc.MediaPlayer("./AP-Off.mp3")
+bell_sound = vlc.MediaPlayer("./bell.mp3")
 
 # VRC kAvtr Cookie
 cookies_kAvtrVRC = {
     'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
-    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3Mjg2NDMxMDI0LCJsYXN0RXZlbnRUaW1lIjoxNjY3Mjg3MTUzODA3LCJldmVudElkIjo4OSwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjg5fQ==',
-    'auth': 'authcookie_61b66fad-0685-4f3e-b2d4-88f235358351',
-    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY2NTg3MDk4MTQ4NywidmVyc2lvbiI6MSwiaWF0IjoxNjY3Mjg2NDMxLCJleHAiOjE2Njk4Nzg0MzEsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.TYfGaCKex6YcZxDpvlGSzBB5jDNeSqxK26QAxUUJHzY',
+    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6ImFhMDIyM2YxLTFlMDgtNDcwYi1iMjljLWVjODNlNzEzNDNlMlIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjcxNTI5OTEwNzQxLCJsYXN0RXZlbnRUaW1lIjoxNjcxNTI5OTI0OTIwLCJldmVudElkIjo2NiwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjY2fQ==',
+    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY3MTUyMjQyMDQ0MCwidmVyc2lvbiI6MSwiaWF0IjoxNjcxNTIyNDIwLCJleHAiOjE2NzQxMTQ0MjAsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.RYQUKreAFp1cyV9LT_8STg04mlv5wtmfCoQuCdMjFYM',
+    'auth': 'authcookie_c613027d-7d86-4a3d-9f49-09a88862a28e',
 }
 
 headers_kAvtrVRC = {
@@ -30,9 +30,9 @@ headers_kAvtrVRC = {
 # VRC Nature House Cookie
 cookies_natureHouse = {
     'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
-    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3Mjg2NDMxMDI0LCJsYXN0RXZlbnRUaW1lIjoxNjY3Mjg3MTUzODA3LCJldmVudElkIjo4OSwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjg5fQ==',
-    'auth': 'authcookie_61b66fad-0685-4f3e-b2d4-88f235358351',
-    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY2NTg3MDk4MTQ4NywidmVyc2lvbiI6MSwiaWF0IjoxNjY3Mjg2NDMxLCJleHAiOjE2Njk4Nzg0MzEsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.TYfGaCKex6YcZxDpvlGSzBB5jDNeSqxK26QAxUUJHzY',
+    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6ImFhMDIyM2YxLTFlMDgtNDcwYi1iMjljLWVjODNlNzEzNDNlMlIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjcxNTI5OTEwNzQxLCJsYXN0RXZlbnRUaW1lIjoxNjcxNTI5OTI0OTIwLCJldmVudElkIjo2NiwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjY2fQ==',
+    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY3MTUyMjQyMDQ0MCwidmVyc2lvbiI6MSwiaWF0IjoxNjcxNTIyNDIwLCJleHAiOjE2NzQxMTQ0MjAsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.RYQUKreAFp1cyV9LT_8STg04mlv5wtmfCoQuCdMjFYM',
+    'auth': 'authcookie_c613027d-7d86-4a3d-9f49-09a88862a28e',
 }
 
 headers_natureHouse = {
@@ -122,4 +122,4 @@ while True:
             bell_sound.stop()
             favNow_natureHouse = natureHouseData['favorites']
     except:
-        print('API Error')
+        pass
