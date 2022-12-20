@@ -47,7 +47,7 @@ pip install selenium
   <li><code>datetime</code>: This module provides classes for working with dates and times. It is not clear from the code provided how this module is being used.</li>
   <li><code>vlc</code>: This module is a Python wrapper for the VLC media player. It is not clear from the code provided how this module is being used.</li>
   <li><code>time</code>: This module provides functions for working</li>
-<h2>Usage</h2>
+<h3>Usage</h3>
 <p>To use this project, simply run the Python script and follow the prompts. You will need to provide your VRChat
   username and password, as well as any required two-factor authentication codes.</p>
   
