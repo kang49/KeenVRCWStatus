@@ -6,10 +6,10 @@ from bs4 import BeautifulSoup
 
 # VRC
 cookies_kAvtrVRC = {
-    'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
-    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3Mjg2NDMxMDI0LCJsYXN0RXZlbnRUaW1lIjoxNjY3Mjg3MTUzODA3LCJldmVudElkIjo4OSwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjg5fQ==',
-    'auth': 'authcookie_61b66fad-0685-4f3e-b2d4-88f235358351',
-    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY2NTg3MDk4MTQ4NywidmVyc2lvbiI6MSwiaWF0IjoxNjY3Mjg2NDMxLCJleHAiOjE2Njk4Nzg0MzEsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.TYfGaCKex6YcZxDpvlGSzBB5jDNeSqxK26QAxUUJHzY',
+    'apiKey': 'your_api_key',
+    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'your_amplitude_id',
+    'auth': 'your_auth_cookie',
+    'twoFactorAuth': 'your_two_factor_auth_cookie',
 }
 
 headers_kAvtrVRC = {
@@ -40,10 +40,10 @@ kAvtrVRCW_find = kAvtrVRCW_soup.find_all('td')
 
 # VRC
 cookies_natureHouse = {
-    'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
-    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6IjY2N2VkNTVjLWVkNzMtNDk4ZS05ZDQwLTdlYzM0ODQ2MzY3MFIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjY3Mjg2NDMxMDI0LCJsYXN0RXZlbnRUaW1lIjoxNjY3Mjg3MTUzODA3LCJldmVudElkIjo4OSwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjg5fQ==',
-    'auth': 'authcookie_61b66fad-0685-4f3e-b2d4-88f235358351',
-    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY2NTg3MDk4MTQ4NywidmVyc2lvbiI6MSwiaWF0IjoxNjY3Mjg2NDMxLCJleHAiOjE2Njk4Nzg0MzEsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.TYfGaCKex6YcZxDpvlGSzBB5jDNeSqxK26QAxUUJHzY',
+    'apiKey': 'your_api_key',
+    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'your_amplitude_id',
+    'auth': 'your_auth_cookie',
+    'twoFactorAuth': 'your_two_factor_auth_cookie',
 }
 
 headers_natureHouse = {

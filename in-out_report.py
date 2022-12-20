@@ -9,10 +9,10 @@ bell_sound = vlc.MediaPlayer("./bell.mp3")
 
 # VRC kAvtr Cookie
 cookies_kAvtrVRC = {
-    'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
-    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6ImFhMDIyM2YxLTFlMDgtNDcwYi1iMjljLWVjODNlNzEzNDNlMlIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjcxNTI5OTEwNzQxLCJsYXN0RXZlbnRUaW1lIjoxNjcxNTI5OTI0OTIwLCJldmVudElkIjo2NiwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjY2fQ==',
-    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY3MTUyMjQyMDQ0MCwidmVyc2lvbiI6MSwiaWF0IjoxNjcxNTIyNDIwLCJleHAiOjE2NzQxMTQ0MjAsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.RYQUKreAFp1cyV9LT_8STg04mlv5wtmfCoQuCdMjFYM',
-    'auth': 'authcookie_c613027d-7d86-4a3d-9f49-09a88862a28e',
+    'apiKey': 'your_api_key',
+    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'your_amplitude_id',
+    'auth': 'your_auth_cookie',
+    'twoFactorAuth': 'your_two_factor_auth_cookie',
 }
 
 headers_kAvtrVRC = {

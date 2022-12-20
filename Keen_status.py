@@ -1,5 +1,4 @@
 from lib2to3.pgen2 import driver
-import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -10,29 +9,6 @@ import random
 
 optionsOpenB = Options()
 optionsOpenB.headless = False
-
-cookies = {
-    'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com': 'eyJkZXZpY2VJZCI6ImFhMDIyM2YxLTFlMDgtNDcwYi1iMjljLWVjODNlNzEzNDNlMlIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjcxNDcwODcwMjc5LCJsYXN0RXZlbnRUaW1lIjoxNjcxNDcwODkyOTc1LCJldmVudElkIjoxMCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjEwfQ==',
-    'apiKey': 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26',
-    'twoFactorAuth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY3MTQ3MDg4MDE3MSwidmVyc2lvbiI6MSwiaWF0IjoxNjcxNDcwODgwLCJleHAiOjE2NzQwNjI4ODAsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.Ks2noPm-3R0r-jW1K4Q1vc-xq2NOLpb-uv9nRXjeKJA',
-    'auth': 'authcookie_6fe19a47-7b60-4837-a92b-f06b1cf5f322',
-}
-
-headers = {
-    # 'Cookie': 'amplitude_id_a750df50d11f21f712262cbd4c0bab37vrchat.com=eyJkZXZpY2VJZCI6ImFhMDIyM2YxLTFlMDgtNDcwYi1iMjljLWVjODNlNzEzNDNlMlIiLCJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNjcxNDcwODcwMjc5LCJsYXN0RXZlbnRUaW1lIjoxNjcxNDcwODkyOTc1LCJldmVudElkIjoxMCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjEwfQ==; apiKey=JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26; twoFactorAuth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfM2Y2MGYxZTctNTZjMy00MzI4LTk5YzEtMzgzZGIxMGJjNmZmIiwibWFjQWRkcmVzcyI6IiIsInRpbWVzdGFtcCI6MTY3MTQ3MDg4MDE3MSwidmVyc2lvbiI6MSwiaWF0IjoxNjcxNDcwODgwLCJleHAiOjE2NzQwNjI4ODAsImF1ZCI6IlZSQ2hhdFR3b0ZhY3RvckF1dGgiLCJpc3MiOiJWUkNoYXQifQ.Ks2noPm-3R0r-jW1K4Q1vc-xq2NOLpb-uv9nRXjeKJA; auth=authcookie_6fe19a47-7b60-4837-a92b-f06b1cf5f322',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Host': 'vrchat.com',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
-    'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
-    # 'Accept-Encoding': 'gzip, deflate, br',
-    'Connection': 'keep-alive',
-}
-
-response = requests.get(
-    'https://vrchat.com/home/user/usr_3f60f1e7-56c3-4328-99c1-383db10bc6ff',
-    cookies=cookies,
-    headers=headers,
-)
 
 current_rate = 68 # start at a rate of 68 beats per minute
 fluctuation_sum = 0 # keep track of the total fluctuation over time
