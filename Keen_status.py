@@ -11,7 +11,7 @@ import sys
 import getpass
 
 optionsOpenB = Options()
-optionsOpenB.headless = False
+optionsOpenB.headless = True
 
 current_rate = 68 # start at a rate of 68 beats per minute
 fluctuation_sum = 0 # keep track of the total fluctuation over time
@@ -25,6 +25,8 @@ password = getpass.getpass('Enter VRC password: ')
 # Initialize webdriver and open VRChat login page
 driver = webdriver.Chrome(options=optionsOpenB)
 driver.get('https://vrchat.com/home/login')
+# Maximize the browser window
+driver.execute_script('document.body.requestFullscreen() || document.body.mozRequestFullScreen() || document.body.webkitRequestFullscreen()')
 
 # Fill in login form and submit
 login_fill = driver.find_element(By.XPATH, '//*[@id="username_email"]')
@@ -35,7 +37,7 @@ pass_fill.send_keys(password)
 
 login_button = driver.find_element(By.XPATH, '//*[@id="login-form"]/div[4]/button')
 login_button.click()
-time.sleep(5)
+time.sleep(10)
 
 # Check for and handle two-factor authentication
 try:
@@ -44,14 +46,13 @@ try:
 
     twofa_login = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div/form/div[4]/button')
     twofa_login.click()
-    time.sleep(5)
+    time.sleep(10)
 except:
     pass
 
 # Navigate to profile page
-profile_link = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[1]/div/div[2]/div[3]/a')
-profile_link.click()
-time.sleep(2)
+driver.get('https://vrchat.com/home/user/')
+time.sleep(10)
 
 
 # Press 'q' to quit.
