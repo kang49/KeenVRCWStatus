@@ -27,6 +27,7 @@
 <ul>
   <li><code>current_rate</code>: This variable determines the starting heart rate for the program.</li>
   <li><code>headless</code>: This variable determines whether the program will run in the background or with a visible browser window. Set to <code>True</code> for a headless program and <code>False</code> for a program with a visible window.</li>
+  <li>You can optimize <code>time.sleep</code> (wait) to relative to your internet speed. Because it need to wait your browser load.</li>
 </ul>
 <h2>Troubleshooting</h2>
 <p>If you encounter any issues while using the program, try the following solutions:</p>
@@ -35,5 +36,6 @@
     <li>Make sure you have entered the correct VRChat username and password.</li>
     <li>If the program is not updating your status, try increasing the sleep time between status updates.</li>
     <li>If the program is running slowly, try decreasing the sleep time between status updates or setting the headless option to <code>True</code>.</li>
+    <li>You can optimize <code>time.sleep</code> (wait) to relative to your internet speed. Because it need to wait your browser load.</li>
 </ul>
 <p>We hope you enjoy using the VRChat Heart Rate Status Updater!</p>
