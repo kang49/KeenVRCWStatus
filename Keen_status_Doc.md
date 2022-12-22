@@ -9,6 +9,7 @@
   <li>The colorama library</li>
   <li>A webdriver (such as ChromeDriver)</li>
 </ul>
+<p>Note: You may need to run the program as an administrator because when you exit this program, it will input your keyboard.</p>
 <h2>Setup</h2>
 <p>To set up the program, follow these steps:</p>
 <ol>
