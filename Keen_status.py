@@ -6,12 +6,15 @@ from selenium.webdriver.common.keys import Keys
 import time
 from colorama import *
 import random
+import keyboard
+import sys
 
 optionsOpenB = Options()
 optionsOpenB.headless = False
 
 current_rate = 68 # start at a rate of 68 beats per minute
 fluctuation_sum = 0 # keep track of the total fluctuation over time
+stop = False # Define a function to be called when the "q" key is pressed
 
 #  Algorithm
 
@@ -50,6 +53,24 @@ profile_link.click()
 time.sleep(2)
 
 
+# Press 'q' to quit.
+def on_q_key_pressed(event):
+    global stop
+    stop = True
+    click_status_box = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div/div/div/div[2]/div[3]')
+    click_status_box.click() # click to status box
+
+    status_fill = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div/div/div/div[2]/div[3]/input')
+    status_fill.send_keys(Keys.BACK_SPACE * 20)
+    status_fill.send_keys('HeartRate nan BPM')
+    status_fill.send_keys(Keys.ENTER)
+    sys.exit()
+
+# Bind the function to the "q" key
+keyboard.on_press_key("q", on_q_key_pressed)
+
+# Start listening for key presses
+keyboard.hook(on_q_key_pressed)
 
 while True:
     # Generate a random number between -3 and 3
@@ -78,3 +99,5 @@ while True:
     status_fill.send_keys(f'HeartRate {heart_rate} BPM')
     status_fill.send_keys(Keys.ENTER)
     time.sleep(10)
+    if stop == True:
+        break
