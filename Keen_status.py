@@ -8,6 +8,7 @@ from colorama import *
 import random
 import keyboard
 import sys
+import getpass
 
 optionsOpenB = Options()
 optionsOpenB.headless = False
@@ -19,7 +20,7 @@ stop = False # Define a function to be called when the "q" key is pressed
 #  Algorithm
 
 username = 'kang49'
-password = (input('Enter password: '))
+password = getpass.getpass('Enter VRC password: ')
 
 # Initialize webdriver and open VRChat login page
 driver = webdriver.Chrome(options=optionsOpenB)
