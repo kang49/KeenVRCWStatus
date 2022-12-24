@@ -37,5 +37,26 @@
     <li>If the program is not updating your status, try increasing the sleep time between status updates.</li>
     <li>If the program is running slowly, try decreasing the sleep time between status updates or setting the headless option to <code>True</code>.</li>
     <li>You can optimize <code>time.sleep</code> (wait) to relative to your internet speed. Because it need to wait your browser load.</li>
+    <li>To fix the issue of the code not working when the remote desktop is disconnected, you must to delete this code to fix.</li>
+  <pre>
+      # Press 'q' to quit.
+      def on_q_key_pressed(event):
+          global stop
+          stop = True
+          click_status_box = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div/div/div/div[2]/div[3]')
+          click_status_box.click() # click to status box
+
+          status_fill = driver.find_element(By.XPATH, '//*[@id="app"]/main/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div/div/div/div[2]/div[3]/input')
+          status_fill.send_keys(Keys.BACK_SPACE * 20)
+          status_fill.send_keys('HeartRate nan BPM')
+          status_fill.send_keys(Keys.ENTER)
+          sys.exit()
+
+      # Bind the function to the "q" key
+      keyboard.on_press_key("q", on_q_key_pressed)
+
+      # Start listening for key presses
+      keyboard.hook(on_q_key_pressed)
+  </pre>
 </ul>
 <p>We hope you enjoy using the VRChat Heart Rate Status Updater!</p>
